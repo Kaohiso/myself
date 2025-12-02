@@ -18,7 +18,7 @@ const breakpointColumnsObj = {
 
 export default function MasonryGrid() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%] mx-auto mb-4">
       <Masonry breakpointCols={breakpointColumnsObj} className="flex gap-4">
         {images.map((src, index) => (
           <div key={index}>
