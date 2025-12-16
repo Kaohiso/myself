@@ -1,27 +1,29 @@
 import { useRef } from "react";
+import { Mesh } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useScroll } from "@react-three/drei";
-import { Mesh } from "three";
-import { translateX } from "@/lib/animations/translate";
+import { useTimeline } from "@/store/useScrollTimeline";
+import { range } from "@/helpers/animations/math";
 
 export default function Cube() {
   const ref = useRef<Mesh | null>(null);
   const scroll = useScroll();
 
-  useFrame(({ clock }) => {
+  const setCubeX = useTimeline((state) => state.setCubeX);
+
+  useFrame(() => {
     if (!ref.current) return;
 
-    const scrollT = scroll.offset;
-    const c = clock.elapsedTime;
+    const t = scroll.offset * 2;
 
-    // Animation d'entrée
-    const introProgress = Math.min(c / 1, 1);
-    ref.current.position.y = 3 - introProgress * 3;
+    // Section 0 → 2 car 2 pages
+    const p = range(t, 0, 2);
 
-    // Rotation horizontale
-    ref.current.rotation.y = scrollT * Math.PI * 0.5;
+    const x = 1.5 + p * -3;
+    ref.current.position.x = x;
 
-    translateX(ref.current, 1.5, -3, scrollT);
+    // 🔴 État partagé avec le HTML
+    setCubeX(x);
   });
 
   return (
