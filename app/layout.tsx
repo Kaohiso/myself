@@ -22,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${didact_Gothic.variable} antialiased`}>
-        <LoaderWrapper>{children}</LoaderWrapper>
+        {/* TODO Uncomment <LoaderWrapper>{children}</LoaderWrapper> */} 
+        {children}
       </body>
     </html>
   );
