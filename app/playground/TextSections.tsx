@@ -13,16 +13,16 @@ export default function TextSections() {
   return (
     <section className="fixed inset-0 pointer-events-none text-8xl">
       {/* Zone gauche */}
-      <aside className="relative w-screen h-screen">
-        <div className="absolute top-1/2 left-50 transform -translate-x-1/2 -translate-y-1/2">
-          <h1 style={{ opacity: leftOpacity }}>Left</h1>
+      <aside className="flex items-center w-screen h-screen ">
+        <div className="text-center w-1/3 ml-30">
+          <h1 style={{ opacity: leftOpacity }}>Imagine being jobless</h1>
         </div>
       </aside>
 
       {/* Zone droite */}
-      <aside className="relative w-screen h-screen">
-        <div className="absolute top-1/2 right-50 transform -translate-x-1/2 -translate-y-1/2">
-          <h1 style={{ opacity: rightOpacity }}>Right</h1>
+      <aside className="flex items-center justify-end w-screen h-screen ">
+        <div className="text-center w-1/3 mr-30">
+          <h1 style={{ opacity: rightOpacity }}>even though you know how to do that</h1>
         </div>
       </aside>
     </section>

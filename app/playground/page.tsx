@@ -10,7 +10,7 @@ const PlaygroundScene = dynamic(() => import("./PlaygroundScene"), {
 export default function PlaygroundPage() {
   return (
     <>
-      {/* <TopBar /> */}
+      <TopBar />
       <main className="h-screen w-screen">
         <PlaygroundScene />
       </main>

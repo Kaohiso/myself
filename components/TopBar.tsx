@@ -1,13 +1,12 @@
 "use client";
 import Image from "next/image";
-import FloatingIcons from "./FloatingIcons";
 import Navbar from "./Navbar";
 import ArtistContent from "./ArtistContent";
 
-export default function TopBar() {
+const TopBar = () => {
   return (
     <header>
-      <div className="grid grid-cols-[4rem_auto_4rem] justify-stretch mx-10 items-center my-4">
+      <div className="absolute w-full grid grid-cols-3 px-10 items-center py-4">
         <div
           className="relative 
             w-10 h-10
@@ -23,9 +22,10 @@ export default function TopBar() {
           />
         </div>
         <ArtistContent />
-        <FloatingIcons />
+        <Navbar />
       </div>
-      <Navbar />
     </header>
   );
-}
+};
+
+export default TopBar;
