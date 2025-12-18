@@ -1,10 +1,17 @@
-// store/useScrollTimeline.ts
-import { create } from "zustand";
+import { create } from 'zustand';
 
-export const useTimeline = create<{
+// Types pour le store
+interface ScrollStore {
+  scrollProgress: number;
   cubeX: number;
+  setScrollProgress: (progress: number) => void;
   setCubeX: (x: number) => void;
-}>((set) => ({
+}
+
+// Store Zustand pour partager l'état du scroll
+export const useScrollStore = create<ScrollStore>((set) => ({
+  scrollProgress: 0,
   cubeX: 1.5,
-  setCubeX: (x) => set({ cubeX: x }),
+  setScrollProgress: (progress: number) => set({ scrollProgress: progress }),
+  setCubeX: (x: number) => set({ cubeX: x }),
 }));

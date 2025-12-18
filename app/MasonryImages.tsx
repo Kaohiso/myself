@@ -1,13 +1,14 @@
 import Image from "next/image";
+import fs from "fs";
+import path from "path";
 
 export default function MasonryGrid() {
-  const images = [
-    "/images/list/abby.jpeg",
-    "/images/list/hollow.jpeg",
-    "/images/list/cute-fox.jpeg",
-    "/images/list/anime-fox.jpeg",
-    "/images/list/hidden-cat.jpeg",
-  ];
+  const imagesDir = path.join(process.cwd(), "public/images/gallery");
+  const files = fs.readdirSync(imagesDir);
+
+  const images = files
+    .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+    .map((f) => `/images/gallery/${f}`);
 
   return (
     <div className="w-[80%] mx-auto">
