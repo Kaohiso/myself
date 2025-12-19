@@ -1,35 +1,40 @@
-import TopBar from "@/components/TopBar";
-import Image from "next/image";
+"use client";
+
 import Footer from "@/components/Footer";
+import TopBar from "@/components/TopBar";
+import dynamic from "next/dynamic";
+import { JSX } from "react";
 import Me from "./Me";
 import Trainings from "./Trainings";
 import Experiences from "./Experiences";
 
-export default function About() {
+const PlaygroundScene = dynamic(() => import("./PlaygroundScene"), {
+  ssr: false,
+});
+
+export default function PlaygroundPage(): JSX.Element {
   return (
-    <main>
-      <TopBar />
-      <section className="mx-auto mb-8 flex flex-col items-center">
-        <div className="w-4/5">
-          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
-            <Image
-              alt="Me"
-              src="/images/me.jpg"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw,
-             (max-width: 1200px) 75vw,
-             50vw"
-            />
+    <>
+      <TopBar absolute />
+
+      <main>
+        {/* Section avec l'animation 3D */}
+        <section className="relative h-[200vh]">
+          <div className="sticky top-0 h-screen w-screen">
+            <PlaygroundScene />
           </div>
-        </div>
-        <div className="w-3/5">
-          <Me />
-          <Trainings />
-          <Experiences />
-        </div>
-      </section>
+        </section>
+
+        {/* Contenu qui suit naturellement */}
+        <section className="relative z-20 min-h-screen flex justify-center items-center">
+          <div className="w-3/5">
+            <Me />
+            <Experiences />
+            <Trainings />
+          </div>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

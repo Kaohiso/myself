@@ -35,7 +35,6 @@ export default function Navbar() {
             My artworks
           </Link>
         </li>
-
         <li>
           <Link
             href="/about"
@@ -60,34 +59,7 @@ export default function Navbar() {
                 hover:after:w-2.5 hover:after:h-2.5 hover:after:border-black
             `}
           >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/playground"
-            className={`
-                relative no-underline transition-all duration-300
-                px-3 py-1
-                ${pathname === "/playground" ? "text-black" : "text-gray-400"}
-
-                before:content-[''] before:absolute before:block 
-                before:border-b-2 before:border-r-2 before:border-transparent
-                before:w-0 before:h-0 
-                before:transition-all before:duration-300 before:ease-in-out 
-                before:bottom-0 before:right-0
-
-                after:content-[''] after:absolute after:block 
-                after:border-t-2 after:border-l-2 after:border-transparent
-                after:w-0 after:h-0 
-                after:transition-all after:duration-300 after:ease-in-out 
-                after:top-0 after:left-0
-
-                hover:before:w-2.5 hover:before:h-2.5 hover:before:border-black
-                hover:after:w-2.5 hover:after:h-2.5 hover:after:border-black
-            `}
-          >
-            Playground
+            About me
           </Link>
         </li>
       </ul>
