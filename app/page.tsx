@@ -12,7 +12,6 @@ export default function Home() {
     .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
     .map((f) => `/images/gallery/${f}`);
 
-  console.log(images)
   return (
     <main className="flex flex-col">
       <TopBar />
