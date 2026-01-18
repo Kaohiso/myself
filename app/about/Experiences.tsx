@@ -4,7 +4,7 @@ import { JSX } from "react";
 export default function Experiences(): JSX.Element {
   return (
     <aside className="mt-8">
-      <h2 className="font-black text-xl">Experiences</h2>
+      <h2 className="font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl">Experiences</h2>
       <Timeline
         startDate="October 2023"
         endDate="September 2025"

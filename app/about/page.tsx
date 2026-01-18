@@ -18,14 +18,12 @@ export default function PlaygroundPage(): JSX.Element {
       <TopBar absolute />
 
       <main>
-        {/* Section avec l'animation 3D */}
         <section className="relative h-[200vh]">
-          <div className="sticky top-0 h-screen w-screen">
+          <div className="sticky top-0 h-screen">
             <PlaygroundScene />
           </div>
         </section>
 
-        {/* Contenu qui suit naturellement */}
         <section className="relative z-20 min-h-screen flex justify-center items-center">
           <div className="w-3/5">
             <Me />

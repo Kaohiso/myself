@@ -15,7 +15,7 @@ export default function Me(): JSX.Element {
       {
         threshold: 0.5,
         rootMargin: "0px",
-      }
+      },
     );
 
     if (divRef.current) {
@@ -32,19 +32,24 @@ export default function Me(): JSX.Element {
   return (
     <div
       ref={divRef}
-      className={`grid sm:grid-cols-2 text-center items-center sm:gap-4 transition-all duration-700 ease-out ${
+      className={`grid grid-cols-1 md:grid-cols-2 text-center items-center gap-6 md:gap-8 lg:gap-12 px-4 sm:px-0 transition-all duration-700 ease-out ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      <p>
+      <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed order-2 md:order-1">
         When I'm not creating or learning new techniques, I spend time outside,
         slowing down, finding calm in fresh air and simple walks — especially
         with my dog, who reminds me daily of the value of presence and small
         moments. This balance between exploration, learning and stillness is
         what continues to guide my work forward.
       </p>
-      <div className="relative w-full aspect-square">
-        <Image src={"/images/draw/bird.png"} alt="bird" fill />
+      <div className="relative w-full aspect-square max-w-md mx-auto order-1 md:order-2">
+        <Image
+          src={"/images/draw/bird.png"}
+          alt="bird"
+          fill
+          className="object-contain"
+        />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Timeline from "@/components/Timeline";
 export default function About(): JSX.Element {
   return (
     <aside className="mt-8">
-      <h2 className="font-black text-xl">Studies</h2>
+      <h2 className="font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl">Studies</h2>
       <Timeline
         startDate="2024"
         endDate="Today"

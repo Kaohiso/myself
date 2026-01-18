@@ -34,8 +34,6 @@ export default function Loader({ onFinish }: { onFinish: () => void }) {
         delay = 20;
       }
 
-      console.log("delay =", delay, "current =", current);
-
       if (current < 100) {
         setTimeout(step, delay);
       } else {

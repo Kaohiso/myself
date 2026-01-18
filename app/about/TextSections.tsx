@@ -13,41 +13,45 @@ export default function TextSections(): JSX.Element {
   const translateY = scrollProgress * 100;
 
   return (
-    <section className="grid grid-cols-2 absolute inset-0 pointer-events-none z-10 ">
-      <div className="flex justify-around w-screen">
-        {/* Zone gauche */}
-        <aside
-          className="flex items-center w-1/3 text-center"
-          style={{ transform: `translateY(${-translateY}vh)` }}
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-0 absolute inset-0 pointer-events-none z-10 px-4 sm:px-6 md:px-8">
+      {/* Zone gauche */}
+      <aside
+        className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 flex items-center justify-center text-center mx-auto"
+        style={{ transform: `translateY(${-translateY}vh)` }}
+      >
+        <p 
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed" 
+          style={{ opacity: leftOpacity }}
         >
-          <p className="" style={{ opacity: leftOpacity }}>
-            After completing a foundation in software development and later
-            expanding into UX and front-end practices, my path gradually began
-            to shift back toward the artistic world that had always lived
-            quietly in the background of my life. What started as a technical
-            journey slowly unfolded into something more personal: the
-            rediscovery of a passion that had shaped my childhood — creating
-            worlds, characters and atmospheres, both in 2D and 3D.
-          </p>
-        </aside>
+          After completing a foundation in software development and later
+          expanding into UX and front-end practices, my path gradually began
+          to shift back toward the artistic world that had always lived
+          quietly in the background of my life. What started as a technical
+          journey slowly unfolded into something more personal: the
+          rediscovery of a passion that had shaped my childhood — creating
+          worlds, characters and atmospheres, both in 2D and 3D.
+        </p>
+      </aside>
 
-        {/* Zone droite */}
-        <aside
-          className="flex items-center  text-center w-1/3"
-          style={{ transform: `translateY(${-translateY + 100}vh)` }}
+      {/* Zone droite */}
+      <aside
+        className="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 flex items-center justify-center text-center mx-auto"
+        style={{ transform: `translateY(${-translateY + 100}vh)` }}
+      >
+        <p 
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-relaxed" 
+          style={{ opacity: rightOpacity }}
         >
-          <p className="" style={{ opacity: rightOpacity }}>
-            Over time, this creative pull became impossible to ignore. I began
-            merging what I had learned through development with a renewed
-            commitment to visual expression, shaping a practice that lives
-            between imagination, design and digital craft. Today, my focus is to
-            build a body of work that explores how ideas evolve when given
-            space, patience and curiosity — whether through illustration,
-            modeling, or the quiet process of giving form to something that
-            didn’t exist before.
-          </p>
-        </aside>
-      </div>
+          Over time, this creative pull became impossible to ignore. I began
+          merging what I had learned through development with a renewed
+          commitment to visual expression, shaping a practice that lives
+          between imagination, design and digital craft. Today, my focus is to
+          build a body of work that explores how ideas evolve when given
+          space, patience and curiosity — whether through illustration,
+          modeling, or the quiet process of giving form to something that
+          didn't exist before.
+        </p>
+      </aside>
     </section>
   );
 }
