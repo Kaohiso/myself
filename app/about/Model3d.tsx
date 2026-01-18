@@ -10,7 +10,7 @@ export default function Model3d() {
   const scrollProgress = useScrollStore((state) => state.scrollProgress);
   const setCubeX = useScrollStore((state) => state.setCubeX);
 
-  const { scene } = useGLTF("/3d/fire_in_the_sky.glb");
+  const { scene } = useGLTF("/3d/fire_in_the_sky_optimized.glb");
 
   useFrame(() => {
     if (!ref.current) return;
@@ -48,4 +48,4 @@ export default function Model3d() {
 }
 
 // Précharger le modèle (optionnel mais recommandé)
-useGLTF.preload("/3d/fire_in_the_sky.glb");
+useGLTF.preload("/3d/fire_in_the_sky_optimized.glb");
