@@ -1,6 +1,6 @@
 import { JSX } from "react";
-import Cube from "./Cube";
+import Model3d from "./Model3d";
 
 export default function Scene(): JSX.Element {
-  return <Cube />;
+  return <Model3d />;
 }

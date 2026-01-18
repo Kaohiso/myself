@@ -1,13 +1,16 @@
 import { useRef } from "react";
-import { Mesh } from "three";
+import { Group } from "three";
 import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 import { range } from "@/helpers/animations/math";
 import { useScrollStore } from "@/store/useScrollTimeline";
 
-export default function Cube() {
-  const ref = useRef<Mesh>(null);
+export default function Model3d() {
+  const ref = useRef<Group>(null);
   const scrollProgress = useScrollStore((state) => state.scrollProgress);
   const setCubeX = useScrollStore((state) => state.setCubeX);
+
+  const { scene } = useGLTF("/3d/fire_in_the_sky.glb");
 
   useFrame(() => {
     if (!ref.current) return;
@@ -23,7 +26,7 @@ export default function Cube() {
     ref.current.position.x = x;
 
     // Rotation optionnelle
-    ref.current.rotation.y = p * 1.5;
+    ref.current.rotation.y = p * 5;
 
     // Partager la position avec le store
     setCubeX(x);
@@ -34,10 +37,15 @@ export default function Cube() {
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
 
-      <mesh ref={ref}>
-        <boxGeometry />
-        <meshStandardMaterial color="#ff7a00" />
-      </mesh>
+      <primitive 
+        ref={ref} 
+        object={scene.clone()} 
+        scale={1}
+        rotation={[0, Math.PI / 4, 0]}
+      />
     </>
   );
 }
+
+// Précharger le modèle (optionnel mais recommandé)
+useGLTF.preload("/3d/fire_in_the_sky.glb");
